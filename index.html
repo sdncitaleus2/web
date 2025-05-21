@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="8gyM441UhkGvWE1j4Q5AxEqu6udJJviQmEenNwZe8kc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDN Negeri Citaleus II</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/1747233069960.png">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="assets/1747233069960.png" alt="Logo SDN Citaleus II" />
+      <h1>SDN Negeri Citaleus II</h1>
+    </div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tentang</a>
+      <a href="#services">Layanan</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-slide active" style="background-image: url('assets/Fotberout1.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('assets/Fotberout2.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('assets/Fotberout3.jpg');"></div>
+
+    <div class="hero-content">
+      <h2>Selamat Datang di SDN Negeri Citaleus II</h2>
+      <button onclick="location.href='skhol.html'">Profil Sekolah</button>
+    </div>
+  </section>
+
+  <!-- SUB HERO / AI Section -->
+  <section class="sub-hero">
+    <div class="sub-hero-text">
+      <h3>Layanan Berbasis AI</h3>
+      <p>Kami menyediakan layanan AI untuk mendukung proses belajar dan mengajar secara interaktif dan modern.</p>
+      <button onclick="location. href='ai.html'">Chat dengan AI</button>
+    </div>
+  </section>
+
+  <!-- SERVICES / CARDS -->
+  <section class="cards" id="services">
+    <a href="prof.html" class="card">
+      <img src="assets/1000122530.jpg" alt="Daftar Anggota Sekolah" />
+      <div class="card-content">
+        <h3>Daftar Anggota Sekolah</h3>
+        <p>Profil setiap tenaga kerja dan pengajar di lingkungan SDN Citaleus II.</p>
+      </div>
+    </a>
+  
+    <a href="https://disdik.jabarprov.go.id/pages/layanan-publik/KalendarPendidikan" class="card">
+      <img src="assets/KPPJB.jpg" alt="Jadwal Kegiatan" />
+      <div class="card-content">
+        <h3>Kalender Pendidikan</h3>
+        <p>Lihat jadwal libur dan hari besar dari setiap bulannya</p>
+      </div>
+    </a>
+  
+    <a href="layanan.html" class="card">
+      <img src="assets/LPS.jpg" alt="Layanan Pembelajaran" />
+      <div class="card-content">
+        <h3>Layanan Pembelajaran</h3>
+        <p>Akses materi ajar, tugas, pendaftaram siswa baru dan ujian digital untuk siswa dan guru.</p>
+      </div>
+    </a>
+  
+    <a href="berita.html" class="card">
+      <img src="assets/SSD.jpg" alt="Ekstrakurikuler" />
+      <div class="card-content">
+        <h3>Seputar sekolah</h3>
+        <p>kegiatan, acara, PIP, Bantuan, pendaftaran dan Berita</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div>
+      <h4>email</h4>
+      <p><a href="https://mail.google.com/mail/u/0/#sent?compose=DmwnWrRtsWDNGPFsFBTDzWTkxczHNHkkGHkGfXjQLwbHXnTJDtMvSqHTCXkKXxlCXMNmZdpGKMVB">citaleus2@gmail.com</a></p>
+    </div>
+    <div>
+      <h4>nomor kontak</h4>
+      <p><a href="http://wa.me/6282240202077">nomor whatsap admin (dara): 082240202077</a></p>
+    </div>
+    <div>
+      <h4>Alamat Sekolah</h4>
+      <p><a href="https://www.google.com/maps/place/SDN+Citaleus+2/@-6.6981905,107.9183032,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69291100a1663f:0xf291a5f4ab591c9f!8m2!3d-6.6981905!4d107.9208781!16s%2Fg%2F11fzfdv1v5?entry=ttu&g_ep=EgoyMDI1MDUxMi4wIKXMDSoASAFQAw%3D%3D">Dusun citunggul Ds. mekarmukti</a></p>
+        <p><a href="https://www.google.com/maps/place/SDN+Citaleus+2/@-6.6981905,107.9183032,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69291100a1663f:0xf291a5f4ab591c9f!8m2!3d-6.6981905!4d107.9208781!16s%2Fg%2F11fzfdv1v5?entry=ttu&g_ep=EgoyMDI1MDUxMi4wIKXMDSoASAFQAw%3D%3D">Kec. Buahdua, Kabupaten Sumedang, Jawa Barat 45392</a></p>
+    </div>
+  </section>  
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 SDN Negeri Citaleus II. Semua hak dilindungi.</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 5000); // Ganti slide tiap 5 detik
+
+    // Observer for cards animation
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>

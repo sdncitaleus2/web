@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Guru & Staf - SDN Citaleus II</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Gradien latar bergerak */
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    body {
+      background: linear-gradient(270deg, #3b82f6, #facc15);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+    }
+
+    /* Efek hover gambar */
+    .foto-hover {
+      transition: transform 0.4s ease;
+    }
+    .card:hover .foto-hover {
+      transform: scale(1.5);
+    }
+
+    /* Modal animasi */
+    .modal-enter {
+      animation: zoomIn 0.3s ease forwards;
+    }
+    .modal-exit {
+      animation: zoomOut 0.3s ease forwards;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes zoomOut {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-8 px-4">
+
+  <div class="max-w-4xl w-full z-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-white text-center mb-8 drop-shadow-md">
+      Daftar Guru & Staf SDN Citaleus II
+    </h1>
+
+    <!-- CARD -->
+<div onclick="showModal('assets/Picida.jpg', 'IDA RIDAWATI, S.Pd.', '19691023200501 2 004', 'Kepala Sekolah', '0823-1897-6831', 'idaridawati@admin.belajar.id')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: IDA RIDAWATI, S.Pd.</h2>
+<p class="text-gray-600">NIP: 19691023200501 2 004</p>
+<p class="text-gray-600">Jabatan: Kepala Sekolah</p>
+<p class="text-gray-600">Kontak: 0823-1897-6831</p>
+<p class="text-gray-600">Email: idaridawati@admin.belajar.id</p>
+</div>
+<img src="assets/Picida.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picilis.jpg', 'RINI SULASTRI, S.Pd. ', '-', 'Guru Kelas I (Satu)', '0812-8470-8357', 'rinisulastri@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: RINI SULASTRI, S.Pd. </h2>
+<p class="text-gray-600">NIP: -</p>
+<p class="text-gray-600">Jabatan: Guru Kelas I (Satu)</p>
+<p class="text-gray-600">Kontak: 0812-8470-8357</p>
+<p class="text-gray-600">Email: rinisulastri@gmail.com</p>
+</div>
+<img src="assets/Picilis.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picrita.jpg', 'RITA MULYAWATI, S.Pd.', '-', 'Guru Kelas II (Dua)', '0823-1616-3033', 'ritamulyawati26@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: RITA MULYAWATI, S.Pd.</h2>
+<p class="text-gray-600">NIP: -</p>
+<p class="text-gray-600">Jabatan: Guru Kelas II (Dua)</p>
+<p class="text-gray-600">Kontak: 0823-1616-3033</p>
+<p class="text-gray-600">Email: ritamulyawati26@gmail.com</p>
+</div>
+<img src="assets/Picrita.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Pictino.jpg', 'TINO SANDRI HENDRIYANA.P, S.Pd.', '-', 'Guru Kelas III (Tiga)', '0812-1473-4224', 'tinosandri93@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: TINO SANDRI HENDRIYANA.P, S.Pd.</h2>
+<p class="text-gray-600">NIP: -</p>
+<p class="text-gray-600">Jabatan: Guru Kelas III (Tiga)</p>
+<p class="text-gray-600">Kontak: 0812-1473-4224</p>
+<p class="text-gray-600">Email: tinosandri93@gmail.com</p>
+</div>
+<img src="assets/Pictino.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picbam.jpg', 'BAMBANG IRAWAN, S.Pd.', '19870420202221 1 004', 'Guru Kelas IV (Empat)', '0852-2150-8017', 'babayj116@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: BAMBANG IRAWAN, S.Pd.</h2>
+<p class="text-gray-600">NIP: 19870420202221 1 004</p>
+<p class="text-gray-600">Jabatan: Guru Kelas IV (Empat)</p>
+<p class="text-gray-600">Kontak: 0852-2150-8017</p>
+<p class="text-gray-600">Email: babayj116@gmail.com</p>
+</div>
+<img src="assets/Picbam.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picusu.jpg', 'ILIS SUARSIH, S.Pd.', '198005242022212 2 002', 'Guru Kelas V (Lima)', '0821-2659-9423', 'ilissuarsih2@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: ILIS SUARSIH, S.Pd.</h2>
+<p class="text-gray-600">NIP: 198005242022212 2 002</p>
+<p class="text-gray-600">Jabatan: Guru Kelas V (Lima)</p>
+<p class="text-gray-600">Kontak: 0821-2659-9423</p>
+<p class="text-gray-600">Email: ilissuarsih2@gmail.com</p>
+</div>
+<img src="assets/Picusu.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picdara.jpg', 'DARA MUTIARA L, S.Pd.', '19841202202221 2 001', 'Guru Kelas VI (Enam)', '0822-4020-2077', 'daragio84@gmail.com<')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: DARA MUTIARA L, S.Pd.</h2>
+<p class="text-gray-600">NIP: 19841202202221 2 001</p>
+<p class="text-gray-600">Jabatan: Guru Kelas VI (Enam)</p>
+<p class="text-gray-600">Kontak: 0822-4020-2077</p>
+<p class="text-gray-600">Email: daragio84@gmail.com</p>
+</div>
+<img src="assets/Picdara.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Picsuhe.jpg', 'SUHERMAN, S.Pd.I.', '1968081720231 1 001', 'Guru PAI (Pelajaran Agama Islam)', '0852-2124-8866', 'jajangsuherman799@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: SUHERMAN, S.Pd.I.</h2>
+<p class="text-gray-600">NIP: 1968081720231 1 001</p>
+<p class="text-gray-600">Jabatan: Guru PAI (Pelajaran Agama Islam)</p>
+<p class="text-gray-600">Kontak: 0852-2124-8866</p>
+<p class="text-gray-600">Email: jajangsuherman799@gmail.com</p>
+</div>
+<img src="assets/Picsuhe.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/Pictiti.jpg', 'TITI SUWATI, S.Pd.', '19670720200801 2 005', 'Guru PJOK (Pendidikan Jasmani Olahraga dan Kesehatan)', '0857-2070-2453', 'titisuwati1234@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: TITI SUWATI, S.Pd.</h2>
+<p class="text-gray-600">NIP: 19670720200801 2 005</p>
+<p class="text-gray-600">Jabatan: Guru PJOK (Pendidikan Jasmani Olahraga dan Kesehatan) </p>
+<p class="text-gray-600">Kontak: 0857-2070-2453</p>
+<p class="text-gray-600">Email: titisuwati1234@gmail.com</p>
+</div>
+<img src="assets/Pictiti.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/piciksan.jpg', 'MUHAMAD IKSAN SUTISNA', '-', 'OPS (Oprator Sekolah)', '0851-7220-8511', 'm.iksan.sutisna@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: MUHAMAD IKSAN SUTISNA</h2>
+<p class="text-gray-600">NIP: -</p>
+<p class="text-gray-600">Jabatan: OPS (Oprator Sekolah)</p>
+<p class="text-gray-600">Kontak: 0851-7220-8511</p>
+<p class="text-gray-600">Email: m.iksan.sutisna@gmail.com</p>
+</div>
+<img src="assets/piciksan.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+<div onclick="showModal('assets/picjojo.jpg', 'JOJO SUKARJA', '-', 'Penjaga Sekolah', '0812-3456-7890', 'jojosukarja@gmail.com')" 
+class="card cursor-pointer bg-white bg-opacity-90 rounded-xl shadow-lg p-4 mb-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ease-in-out">
+<div class="text-center md:text-left md:flex-1">
+<h2 class="text-xl font-semibold text-gray-800">Nama: JOJO SUKARJA</h2>
+<p class="text-gray-600">NIP: -</p>
+<p class="text-gray-600">Jabatan: Penjaga Sekolah</p>
+<p class="text-gray-600">Kontak: 0812-3456-7890</p>
+<p class="text-gray-600">Email: jojosukarja@gmail.com</p>
+</div>
+<img src="assets/picjojo.jpg" alt="Foto Guru" class="foto-hover w-32 h-32 object-cover rounded-xl mt-4 md:mt-0 md:ml-6 border-4 border-blue-300 shadow-md" />
+</div>
+
+  <!-- MODAL -->
+<div id="modal" class="fixed inset-0 hidden z-50 bg-black bg-opacity-90 flex items-center justify-center">
+  <div id="modalContent" class="bg-white w-[90%] max-w-md p-6 rounded-2xl shadow-2xl relative text-gray-800 animate-scaleIn">
+    <button onclick="hideModal()" class="absolute top-4 left-4 bg-gray-100 text-black px-3 py-1 text-sm rounded shadow-md hover:bg-gray-200 transition">
+      &larr; Kembali
+    </button>
+    <div class="flex flex-col items-center mt-8">
+      <img id="modalFoto" alt="Foto Guru" class="w-full max-w-md md:max-w-lg lg:max-w-xl object-cover rounded-xl border-4 border-yellow-400 shadow-lg mb-4">
+      <div class="text-center">
+        <h2 id="modalNama" class="text-2xl font-bold mb-1"></h2>
+        <p id="modalNip" class="text-sm text-gray-600 mb-1"></p>
+        <p id="modalJabatan" class="text-sm text-gray-600 mb-1"></p>
+        <p id="modalKontak" class="text-sm text-gray-600"></p>
+        <p id="modalEmail" class="text-sm text-gray-600"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .animate-scaleIn {
+    animation: scaleIn 0.2s ease-out;
+  }
+</style>
+
+<script>
+  function showModal(foto, nama, nip, jabatan, kontak, email) {
+    const modal = document.getElementById('modal');
+    const content = document.getElementById('modalContent');
+    document.getElementById('modalFoto').src = foto;
+    document.getElementById('modalNama').textContent = nama;
+    document.getElementById('modalNip').textContent = 'NIP: ' + nip;
+    document.getElementById('modalJabatan').textContent = 'Jabatan: ' + jabatan;
+    document.getElementById('modalKontak').textContent = 'Kontak: ' + kontak;
+    document.getElementById('modalEmail').textContent = 'Email: ' + email;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideModal() {
+    document.getElementById('modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+</script>

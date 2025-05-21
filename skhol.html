@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informasi Sekolah SDN Citaleus II</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Styling untuk slider */
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+    .slide {
+      min-width: 250px;
+      max-width: 250px;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .slide:hover {
+      transform: scale(1.05);
+    }
+    .slide img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Table styling */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #cbd5e1; /* Tailwind slate-300 */
+      padding: 0.5rem;
+      text-align: center;
+    }
+    thead tr {
+      background-color: #bfdbfe; /* Tailwind blue-200 */
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #f9fafb; /* Tailwind gray-50 */
+    }
+
+    /* Modal */
+    #modalOverlay {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .slide {
+        min-width: 200px;
+        max-width: 200px;
+        padding: 0.75rem;
+      }
+      .slide img {
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-r from-blue-400 via-yellow-300 to-blue-400 min-h-screen p-6 font-sans text-gray-900">
+
+  <div class="max-w-5xl mx-auto bg-white bg-opacity-80 rounded-2xl p-8 shadow-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center">Informasi Sekolah SDN Citaleus II</h1>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-4 border-b-2 border-yellow-400 pb-2">Data Sekolah</h2>
+      <ul class="space-y-2 text-gray-700">
+        <li><strong>Nama Sekolah:</strong> SD Negeri Citaleus II</li>
+        <li><strong>Didirikan Pada:</strong> 01 Januari 1957</li>
+        <li><strong>NPSN:</strong> 20233872</li>
+        <li><strong>NSS:</strong> 101021010005</li>
+        <li><strong>Alamat:</strong> Dusun citunggul Ds. mekarmukti Kec. Buahdua, Kabupaten Sumedang, Jawa Barat 45392 </li>
+        <li><strong>Email:</strong> citaleus2@gmail.com</li>
+        <li><strong>Kontak:</strong> 0822-4020-2077</li>
+        <li><strong>Jam Kerja:</strong> Senin - Sabtu, 07:00 - 15:00 WIB</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-4 border-b-2 border-yellow-400 pb-2">Jadwal Masuk dan Pulang per Kelas per Hari</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Hari</th>
+            <th>Kelas 1</th>
+            <th>Kelas 2</th>
+            <th>Kelas 3</th>
+            <th>Kelas 4</th>
+            <th>Kelas 5</th>
+            <th>Kelas 6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-semibold">Senin</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Selasa</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Rabu</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Kamis</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Jumat</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Sabtu</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+            <td>07:00 - 13:00</td>
+            <td>07:30 - 13:30</td>
+            <td>07:00 - 13:00</td>
+            <td>07:15 - 13:15</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-4 border-b-2 border-yellow-400 pb-2">Galeri Foto Sekolah</h2>
+
+      <div class="slider-container relative">
+        <div id="sliderTrack" class="slider-track">
+          <div class="slide cursor-pointer" data-index="0">
+            <img src="assets/LAPANGAN.jpg" alt="Halaman Sekolah" />
+            <p>Halaman sekolah yang luas dan hijau.</p>
+          </div>
+          <div class="slide cursor-pointer" data-index="1">
+            <img src="assets/kelas.jpg" alt="Kelas" />
+            <p>Suasana kelas yang nyaman dan modern.</p>
+          </div>
+          <div class="slide cursor-pointer" data-index="2">
+            <img src="assets/Picpres.jpg" alt="Perpustakaan" />
+            <p>Prestasi yang diraih oleh siswa.</p>
+          </div>
+          <div class="slide cursor-pointer" data-index="3">
+            <img src="assets/Picsilat.jpg" alt="Kegiatan Ekstrakurikuler" />
+            <p>Kegiatan ekstrakurikuler siswa pencak silat.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center space-x-4 mt-4">
+        <button id="btnPrev" class="bg-yellow-400 hover:bg-yellow-500 px-4 py-2 rounded shadow text-white font-semibold">&larr; Sebelumnya</button>
+        <button id="btnNext" class="bg-yellow-400 hover:bg-yellow-500 px-4 py-2 rounded shadow text-white font-semibold">Selanjutnya &rarr;</button>
+      </div>
+
+      <!-- Modal Overlay -->
+      <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl shadow-xl max-w-3xl w-[70vw] p-6 relative">
+          <button id="btnCloseModal" class="absolute top-4 right-4 bg-yellow-400 hover:bg-yellow-500 text-white rounded px-3 py-1 font-semibold">Tutup</button>
+          <img id="modalImage" src="" alt="" class="w-full rounded-lg mb-4" />
+          <p id="modalDescription" class="text-gray-800 text-center text-lg"></p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+<script>
+  const sliderTrack = document.getElementById('sliderTrack');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+
+  // Slide width + margin-right (1rem = 16px)
+  // Sesuaikan dengan CSS slide min/max width = 250px + 16px margin
+  const slideWidth = 250 + 16;
+  let position = 0;
+
+  btnNext.addEventListener('click', () => {
+    // Hitung batas maksimal scroll ke kiri (negatif)
+    const visibleSlides = Math.floor(sliderTrack.parentElement.offsetWidth / slideWidth);
+    const maxScroll = -(slideWidth * (sliderTrack.children.length - visibleSlides));
+    if(position > maxScroll) {
+      position -= slideWidth;
+      if(position < maxScroll) position = maxScroll;
+      sliderTrack.style.transform = `translateX(${position}px)`;
+    }
+  });
+
+  btnPrev.addEventListener('click', () => {
+    if(position < 0) {
+      position += slideWidth;
+      if(position > 0) position = 0;
+      sliderTrack.style.transform = `translateX(${position}px)`;
+    }
+  });
+
+  // Modal enlarge image logic
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalImage = document.getElementById('modalImage');
+  const modalDescription = document.getElementById('modalDescription');
+  const btnCloseModal = document.getElementById('btnCloseModal');
+
+  const slides = document.querySelectorAll('.slide');
+
+  slides.forEach(slide => {
+    slide.addEventListener('click', () => {
+      const img = slide.querySelector('img');
+      const desc = slide.querySelector('p').textContent;
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modalDescription.textContent = desc;
+      modalOverlay.classList.remove('hidden');
+    });
+  });
+
+  btnCloseModal.addEventListener('click', () => {
+    modalOverlay.classList.add('hidden');
+    modalImage.src = '';
+    modalImage.alt = '';
+    modalDescription.textContent = '';
+  });
+
+  // Tutup modal juga jika klik di luar konten modal
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      btnCloseModal.click();
+    }
+  });
+</script>
+
+</body>
+</html>
