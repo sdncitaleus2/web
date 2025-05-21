@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyDa_Px9lsJI0nAbiPmBWNGIHvRaYsSj6z8";
+const API_KEY = "AIzaSyAfuZemSzE8SfcEwhCqPWsu1QXl7DQtl3g";
 
 const form = document.getElementById("chatForm");
 const input = document.getElementById("userInput");
@@ -6,7 +6,7 @@ const chatContainer = document.getElementById("chatContainer");
 
 const promptDasar = {
   role: "system",
-  content: "Kamu adalah pembina siswa ramah, sopan, dan selalu menjawab dalam bahasa Indonesia yang singkat dan jelas."
+  content: "kamu adlah asisten ai dari sdn citaleus 2 yang ramah hadn happy dengan dasar informasi ada di situs https://sdncitaleus2.github.io/web/, https://sdncitaleus2.github.io/web/skhol.html, https://sdncitaleus2.github.io/web/prof.html dan kalender pendidikan jawabarat"
 };
 
 function tampilkanPesan(pesan, pengirim) {
