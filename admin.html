@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin - Data Guru & Tendik</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="aset/logo.png">
+  <meta name="google-site-verification" content="74b50a76ec9ce77a">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f0f2f5;
+      padding-top: 70px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #0b3c5d, #1e6fa3);
+      color: white;
+      padding: 16px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .logout-btn {
+      padding: 8px 16px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .logout-btn:hover {
+      background: #cc0000;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .info-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+      margin-bottom: 30px;
+    }
+
+    .info-box h2 {
+      color: #0b3c5d;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #0b3c5d;
+      box-shadow: 0 0 8px rgba(11, 60, 93, .15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+
+    thead {
+      background: linear-gradient(135deg, #0b3c5d, #1e6fa3);
+      color: white;
+    }
+
+    th {
+      padding: 14px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #0b3c5d;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr {
+      transition: .2s;
+    }
+
+    tbody tr:hover {
+      background: #f8f9fa;
+    }
+
+    .row-number {
+      color: #999;
+      font-weight: 600;
+      width: 40px;
+    }
+
+    .status-pns {
+      background: #d4edda;
+      color: #155724;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-pppk {
+      background: #cfe2ff;
+      color: #084298;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-honorer {
+      background: #fff3cd;
+      color: #856404;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .action-btn {
+      padding: 6px 12px;
+      background: #0b3c5d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: .3s;
+    }
+
+    .action-btn:hover {
+      background: #1e6fa3;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+
+      header h1 {
+        font-size: 16px;
+      }
+    }
+
+    .total-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, #0b3c5d, #1e6fa3);
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .info-card .label {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .info-card .value {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        max-width: 100%;
+        padding: 16px;
+        margin: 20px auto;
+      }
+
+      header {
+        padding: 14px 16px;
+      }
+
+      header h1 {
+        font-size: 18px;
+      }
+
+      table {
+        font-size: 13px;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+
+      .total-info {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+
+      .info-card {
+        padding: 14px;
+      }
+
+      .info-card .value {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 12px;
+        margin: 16px auto;
+      }
+
+      header {
+        padding: 12px 14px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      header h1 {
+        font-size: 16px;
+        margin: 0;
+      }
+
+      .logout-btn {
+        width: 100%;
+        padding: 10px 12px;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th {
+        padding: 8px 6px;
+        font-size: 11px;
+      }
+
+      td {
+        padding: 8px 6px;
+      }
+
+      .row-number {
+        width: 30px;
+      }
+
+      .total-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .info-card {
+        padding: 12px;
+      }
+
+      .info-card .label {
+        font-size: 11px;
+      }
+
+      .info-card .value {
+        font-size: 18px;
+      }
+
+      .search-box input {
+        font-size: 13px;
+        padding: 10px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+        margin: 14px auto;
+      }
+
+      header {
+        padding: 10px 12px;
+      }
+
+      header h1 {
+        font-size: 14px;
+      }
+
+      .logout-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      table {
+        font-size: 11px;
+      }
+
+      th {
+        padding: 6px 4px;
+        font-size: 10px;
+      }
+
+      td {
+        padding: 6px 4px;
+      }
+
+      .row-number {
+        width: 25px;
+        font-size: 10px;
+      }
+
+      .total-info {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        padding: 10px;
+      }
+
+      .info-card .label {
+        font-size: 10px;
+      }
+
+      .info-card .value {
+        font-size: 16px;
+      }
+
+      .search-box input {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      .info-box {
+        padding: 12px;
+        margin-bottom: 16px;
+      }
+
+      .info-box h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📊 Dashboard Admin - Data Guru & Tenaga Kependidikan</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <div class="container">
+    <div class="info-box">
+      <h2>Ringkasan Data</h2>
+      <div class="total-info">
+        <div class="info-card">
+          <div class="label">Total GTK</div>
+          <div class="value" id="totalGTK">0</div>
+        </div>
+        <div class="info-card">
+          <div class="label">Guru PNS</div>
+          <div class="value" id="totalPNS">0</div>
+        </div>
+        <div class="info-card">
+          <div class="label">Guru PPPK</div>
+          <div class="value" id="totalPPPK">0</div>
+        </div>
+        <div class="info-card">
+          <div class="label">Honorer</div>
+          <div class="value" id="totalHonorer">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>Cari Data Guru</h2>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari berdasarkan nama, NIP, NUPTK, atau jabatan..." onkeyup="filterTable()">
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>Data Lengkap Guru & Tenaga Kependidikan</h2>
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th class="row-number">No</th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+            <th>NIP</th>
+            <th>NUPTK</th>
+            <th>Tempat Tgl Lahir</th>
+            <th>Pendidikan</th>
+            <th>Menjabat</th>
+            <th>Status</th>
+            <th>No HP</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="gtk.js"></script>
+  <script>
+    // Cek login
+    const loginUser = JSON.parse(localStorage.getItem("loginUser"));
+    if (!loginUser || loginUser.role !== "admin") {
+      location.href = "login.html";
+    }
+
+    // Konversi object DATA_GTK menjadi array
+    const gtkArray = Object.entries(DATA_GTK).map(([key, value]) => ({
+      ...value,
+      key: key
+    }));
+
+    // Hitung statistik
+    function updateStats() {
+      const total = gtkArray.length;
+      const pns = gtkArray.filter(g => g.status_kepegawaian === "PNS").length;
+      const pppk = gtkArray.filter(g => g.status_kepegawaian === "PPPK").length;
+      const honorer = gtkArray.filter(g => g.status_kepegawaian === "HONORER").length;
+
+      document.getElementById("totalGTK").textContent = total;
+      document.getElementById("totalPNS").textContent = pns;
+      document.getElementById("totalPPPK").textContent = pppk;
+      document.getElementById("totalHonorer").textContent = honorer;
+    }
+
+    // Render table
+    function renderTable(data) {
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+
+      data.forEach((gtk, index) => {
+        const status = gtk.status_kepegawaian;
+        let statusClass = "status-pns";
+        if (status === "PPPK") statusClass = "status-pppk";
+        if (status === "HONORER") statusClass = "status-honorer";
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td class="row-number">${index + 1}</td>
+          <td><strong>${gtk.nama}</strong></td>
+          <td>${gtk.jabatan}</td>
+          <td>${gtk.nip}</td>
+          <td>${gtk.nuptk}</td>
+          <td>${gtk.tempat_tanggal_lahir}</td>
+          <td>${gtk.pendidikan}</td>
+          <td>${gtk.menjabat}</td>
+          <td><span class="${statusClass}">${status}</span></td>
+          <td>${gtk.no_hp}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Filter/Search
+    function filterTable() {
+      const searchValue = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = gtkArray.filter(gtk =>
+        gtk.nama.toLowerCase().includes(searchValue) ||
+        gtk.nip.toLowerCase().includes(searchValue) ||
+        gtk.nuptk.toLowerCase().includes(searchValue) ||
+        gtk.jabatan.toLowerCase().includes(searchValue) ||
+        gtk.menjabat.toLowerCase().includes(searchValue)
+      );
+
+      renderTable(filtered);
+    }
+
+    // Logout
+    function logout() {
+      if (confirm("Apakah Anda yakin ingin logout?")) {
+        localStorage.removeItem("loginUser");
+        location.href = "login.html";
+      }
+    }
+
+    // Init
+    window.onload = function () {
+      updateStats();
+      renderTable(gtkArray);
+    };
+  </script>
+</body>
+</html>

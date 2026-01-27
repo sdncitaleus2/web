@@ -1,0 +1,10 @@
+body {font-family: system-ui, sans-serif;margin: 0;background: #f4f6f9;}
+header, footer {background: #0b3c5d;color: white;text-align: center;padding: 15px 0;}
+h1 {text-align: center;margin: 20px 0;}
+.galeri-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));gap: 16px;padding: 20px;max-width: 1200px;margin: auto;}
+.galeri-item {background: white;border-radius: 12px;overflow: hidden;box-shadow: 0 6px 18px rgba(0,0,0,.08);cursor: pointer;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+.galeri-item:hover {transform: translateY(-5px);box-shadow: 0 10px 25px rgba(0,0,0,.15);}
+.galeri-item img {width: 100%;display: block;}
+.galeri-item p {margin: 10px;text-align: center;font-weight: 600;}
+.modal {display: none;position: fixed;inset: 0;background: rgba(0,0,0,0.6);justify-content: center;align-items: center;z-index: 1000;}
+.modal img {max-width: 70%;max-height: 70%;border-radius: 10px;border: 3px solid #fff;}

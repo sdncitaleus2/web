@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Staf | SDN Citaleus II</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="aset/logo.png">
+  <meta name="google-site-verification" content="74b50a76ec9ce77a">
+  <style>
+    :root {
+      --biru: #0b3c5d;
+      --biru-muda: #1e6fa3;
+      --putih: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #0b3c5d, #1e6fa3, #0b3c5d);
+      background-size: 400% 400%;
+      animation: bgMove 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, .97);
+      border-radius: 22px;
+      padding: 36px 30px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, .35);
+      animation: cardIn .8s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .login-header img {
+      width: 70px;
+      margin-bottom: 12px;
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .login-header h2 {
+      margin: 0;
+      color: var(--biru);
+      font-size: 24px;
+    }
+
+    .login-header p {
+      font-size: 14px;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 6px;
+      display: block;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      transition: all .3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--biru-muda);
+      box-shadow: 0 0 0 3px rgba(30, 111, 163, .18);
+      transform: scale(1.02);
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 40px;
+      border: none;
+      background: linear-gradient(135deg, var(--biru), var(--biru-muda));
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .2);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(30, 111, 163, .5);
+    }
+
+    .login-btn:hover::after {
+      opacity: 1;
+    }
+
+    .login-btn:active {
+      transform: scale(.96);
+    }
+
+    .login-error {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #ff1900;
+      text-align: center;
+      display: none;
+      animation: shake .4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    .login-card.error {
+      animation: errorFlash 1s ease;
+      border: 2px solid #ff1900;
+    }
+
+    @keyframes errorFlash {
+      0% { background: #fff; box-shadow: 0 25px 60px rgba(0, 0, 0, .35); }
+      30% { background: #ffecec; box-shadow: 0 25px 60px rgba(231, 76, 60, .45); }
+      100% { background: #fff; box-shadow: 0 25px 60px rgba(0, 0, 0, .35); }
+    }
+
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+      }
+
+      .login-header h2 {
+        font-size: 20px;
+      }
+
+      .login-header img {
+        width: 60px;
+      }
+
+      .form-group input {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .login-btn {
+        padding: 13px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .login-wrapper {
+        max-width: 100%;
+      }
+
+      .login-card {
+        padding: 24px 16px;
+        border-radius: 16px;
+      }
+
+      .login-header h2 {
+        font-size: 18px;
+      }
+
+      .login-header img {
+        width: 50px;
+      }
+
+      .form-group {
+        margin-bottom: 14px;
+      }
+
+      .form-group input {
+        padding: 11px 12px;
+        font-size: 12px;
+      }
+
+      .login-btn {
+        padding: 12px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="aset/logo.png" alt="Logo SDN">
+        <h2>Login Staf</h2>
+        <p>SD Negeri Citaleus II</p>
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Contoh: 196910232005012004 atau SRI OKTAVIANI">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Masukkan password">
+      </div>
+
+      <button class="login-btn" onclick="login()">Masuk</button>
+      <div class="login-error" id="loginError">Username atau password salah</div>
+    </div>
+  </div>
+
+  <script src="string.js"></script>
+</body>
+</html>

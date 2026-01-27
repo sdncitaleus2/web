@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard GTK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="aset/logo.png">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef1f5;
+      font-family: system-ui;
+      color: #1f2937;
+    }
+
+    header {
+      background: #0b3c5d;
+      color: white;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* ===============================
+       CONTAINER
+       =============================== */
+    .container {
+      max-width: 980px;
+      margin: 22px auto;
+      background: white;
+      padding: 26px;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.15);
+    }
+
+    /* ===============================
+       PROFIL
+       =============================== */
+    .profil-box {
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    /* FOTO – ikut rasio asli */
+    .profil-box img {
+      max-width: 140px;
+      width: auto;
+      height: auto;
+      object-fit: contain;      /* PENTING */
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fafafa;
+      padding: 6px;
+    }
+
+    #nama {
+      margin: 0 0 6px 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    #jabatan {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e6fa3;
+      margin-bottom: 14px;
+    }
+
+    /* ===============================
+       TABEL DATA (LEGA & RAPI)
+       =============================== */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 6px;   /* jarak antar baris */
+      font-size: 14px;
+    }
+
+    td {
+      padding: 6px 6px;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      width: 34%;
+      font-weight: 600;
+      color: #374151;
+      padding-right: 12px;
+    }
+
+    td:last-child {
+      color: #111827;
+    }
+
+    /* status biar enak dilihat */
+    #status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .3px;
+    }
+
+    /* ===============================
+       TOOLS
+       =============================== */
+    .tools-title {
+      margin-top: 34px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .tools-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.1);
+      cursor: pointer;
+      transition: .25s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 26px rgba(11,60,93,.25);
+    }
+
+    .tool-card-img {
+      height: 110px;
+      background: linear-gradient(135deg, #1e6fa3, #0b3c5d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tool-card-img img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .tool-card-content {
+      padding: 12px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tool-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0b3c5d;
+      line-height: 1.3;
+    }
+
+    .tool-card-desc {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    /* ===============================
+       RESPONSIVE
+       =============================== */
+    @media (max-width: 768px) {
+      .profil-box {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .profil-box img {
+        max-width: 120px;
+      }
+
+      td:first-child {
+        width: 42%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 18px;
+      }
+
+      #nama {
+        font-size: 18px;
+      }
+
+      table {
+        font-size: 13px;
+      }
+    }
+
+    /* ===============================
+       LOGOUT
+       =============================== */
+    .logout {
+      margin-top: 22px;
+      padding: 9px 16px;
+      border-radius: 12px;
+      border: none;
+      background: #c62828;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+  <header>Dashboard GTK — SDN Citaleus II</header>
+
+  <div class="container">
+    <div class="profil-box">
+      <img id="foto">
+      <div>
+        <h2 id="nama"></h2>
+        <div id="jabatan"></div>
+        <table>
+          <tr>
+            <td>NIP</td>
+            <td id="nip"></td>
+          </tr>
+          <tr>
+            <td>NUPTK</td>
+            <td id="nuptk"></td>
+          </tr>
+          <tr>
+            <td>Tempat Tanggal Lahir</td>
+            <td id="tempat_tanggal_lahir"></td>
+          </tr>
+          <tr>
+            <td>SK Pengangkatan</td>
+            <td id="sk"></td>
+          </tr>
+          <tr>
+            <td>Nomor NPWP</td>
+            <td id="nomor_npwp"></td>
+          </tr>
+          <tr>
+            <td>TMT</td>
+            <td id="tmt"></td>
+          </tr>
+          <tr>
+            <td>Golongan</td>
+            <td id="golongan"></td>
+          </tr>
+          <tr>
+            <td>Pendidikan</td>
+            <td id="pendidikan"></td>
+          </tr>
+          <tr>
+            <td>Menjabat Sebagai</td>
+            <td id="menjabat"></td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td id="status"></td>
+          </tr>
+          <tr>
+            <td>No HP</td>
+            <td id="hp"></td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td id="alamat"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="tools-title">📚 Sumber Daya Pendidikan</div>
+    <div class="tools-grid" id="toolsArea"></div>
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="gtk.js"></script>
+  <script>
+    // Check login dan redirect jika tidak ada user
+    const user = JSON.parse(localStorage.getItem("loginUser") || "{}");
+
+    if (!user.username) {
+      location.href = "login.html";
+    }
+
+    // Get user data dari GTK database
+    const d = DATA_GTK[user.username];
+    
+    // Jika user tidak ditemukan di database, redirect ke login
+    if (!d) {
+      console.error("User not found in database. Username:", user.username);
+      console.error("Available keys:", Object.keys(DATA_GTK));
+      localStorage.removeItem("loginUser");
+      location.href = "login.html";
+    }
+
+    // Populate profil data
+    document.getElementById("foto").src = d.foto || "aset/default-teacher.jpg";
+    document.getElementById("foto").onerror = function() { this.src = "aset/default-teacher.jpg"; };
+    
+    document.getElementById("nama").textContent = d.nama || "-";
+    document.getElementById("jabatan").textContent = d.jabatan || "-";
+
+    document.getElementById("nip").textContent = d.nip || "-";
+    document.getElementById("nuptk").textContent = d.nuptk || "-";
+    document.getElementById("tempat_tanggal_lahir").textContent = d.tempat_tanggal_lahir || "-";
+    document.getElementById("sk").textContent = d.sk_pengangkatan || "-";
+    document.getElementById("nomor_npwp").textContent = d.nomor_npwp || "-";
+    document.getElementById("tmt").textContent = d.tmt || "-";
+    document.getElementById("golongan").textContent = d.golongan || "-";
+    document.getElementById("pendidikan").textContent = d.pendidikan || "-";
+    document.getElementById("menjabat").textContent = d.menjabat || "-";
+    document.getElementById("status").textContent = d.status_kepegawaian || "-";
+    document.getElementById("hp").textContent = d.no_hp || "-";
+    document.getElementById("alamat").textContent = d.alamat || "-";
+
+    const TOOLS = [
+      {
+        logo: "https://guru.kemdikbud.go.id/favicon.ico",
+        judul: "PMM - Platform Merdeka Mengajar",
+        deskripsi: "Sumber resmi pemerintah untuk CP, ATP, dan modul ajar terlengkap menggunakan akun Belajar.id",
+        link: "https://guru.kemdikbud.go.id"
+      },
+      {
+        logo: "https://buku.kemdikbud.go.id/favicon.ico",
+        judul: "Perangkat Ajar Kemdikbud",
+        deskripsi: "Situs resmi untuk mencari contoh modul dan buku teks sesuai fase",
+        link: "https://buku.kemdikbud.go.id"
+      },
+      {
+        logo: "https://www.datadikdasmen.com/favicon.ico",
+        judul: "Datadikdasmen",
+        deskripsi: "Penyedia administrasi sekolah, RPP, dan modul ajar gratis yang sangat populer di kalangan guru SD",
+        link: "https://www.datadikdasmen.com"
+      },
+      {
+        logo: "https://www.gurumaju.com/favicon.ico",
+        judul: "Guru Maju",
+        deskripsi: "Menyediakan bank soal, perangkat ajar Kurikulum Merdeka, dan administrasi kelas secara lengkap",
+        link: "https://www.gurumaju.com"
+      },
+      {
+        logo: "https://www.ayomadrasah.id/favicon.ico",
+        judul: "Ayo Madrasah",
+        deskripsi: "Banyak membagikan template administrasi pendidikan dan generator dokumen sekolah",
+        link: "https://www.ayomadrasah.id"
+      },
+      {
+        logo: "https://www.zuhriindonesia.com/favicon.ico",
+        judul: "Zuhri Indonesia",
+        deskripsi: "Fokus pada perangkat ajar dan media pembelajaran yang bisa diunduh gratis",
+        link: "https://www.zuhriindonesia.com"
+      },
+      {
+        logo: "https://ayoguruberbagi.kemdikbud.go.id/favicon.ico",
+        judul: "Guru Berbagi",
+        deskripsi: "Komunitas berbagi RPP dan Modul Ajar antar sesama guru",
+        link: "https://ayoguruberbagi.kemdikbud.go.id"
+      },
+      {
+        logo: "https://ciptacendekia.com/favicon.ico",
+        judul: "Cipta Cendekia",
+        deskripsi: "Menyediakan tools pendukung untuk guru dan administrasi soal",
+        link: "https://ciptacendekia.com"
+      },
+      {
+        logo: "https://modulajarguru.com/favicon.ico",
+        judul: "Modul Ajar Guru",
+        deskripsi: "Situs khusus yang menyediakan draf modul ajar per fase di SD",
+        link: "https://modulajarguru.com"
+      },
+      {
+        logo: "https://www.apkapm.com/favicon.ico",
+        judul: "Aplikasi Raport SD",
+        deskripsi: "Situs yang sering membagikan template excel untuk aplikasi nilai dan raport",
+        link: "https://www.apkapm.com"
+      }
+    ];
+
+    const toolsArea = document.getElementById("toolsArea");
+
+    if (toolsArea) {
+      TOOLS.forEach(t => {
+        const box = document.createElement("div");
+        box.className = "tool-card";
+        
+        box.innerHTML = `
+          <div class="tool-card-img">
+            <img src="${t.logo}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%231e6fa3%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2250%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E📖%3C/text%3E%3C/svg%3E'" alt="${t.judul}">
+          </div>
+          <div class="tool-card-content">
+            <div class="tool-card-title">${t.judul}</div>
+            <div class="tool-card-desc" title="${t.deskripsi}">${t.deskripsi}</div>
+          </div>
+        `;
+        box.onclick = () => window.open(t.link, "_blank");
+        toolsArea.appendChild(box);
+      });
+    }
+
+    function logout() {
+      localStorage.removeItem("loginUser");
+      location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
