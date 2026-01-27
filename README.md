@@ -21,3 +21,5 @@ https://sdncitaleus2.github.io/web/
 ## Teknologi
 - HTML, CSS, JavaScript
 - GitHub Pages
+## Lisensi dan pengembang
+webtite ini dibuat oleh seorang depeloper dengan masa pengerjaan dan mediasi 3 bulan 15 hari, depeloper tersebut bernama muhamad iksan sutisna dengan sosial media ig:cupakapa. depeloper tersebut juga menjabat sebagai perator resmi sdn citaleus 2
