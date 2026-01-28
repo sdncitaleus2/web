@@ -316,25 +316,8 @@
   <!-- SCRIPTS -->
   <script src="gtk.js"></script>
   <script src="script.js"></script>
-  
-  <!-- Mobile Menu Handler -->
-  <script>
-    const burgerMenu = document.getElementById('burgerMenu');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (burgerMenu) {
-      burgerMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-      
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('#mainHeader')) {
-          navMenu.classList.remove('active');
-        }
-      });
-    }
-  </script>
 </body>
 </html>
+
 
 
