@@ -98,7 +98,7 @@ const DATA_GTK = {
     menjabat: "Guru Kelas II",
     status_kepegawaian: "PPPK",
     no_hp: "082316163033",
-    alamat: "-6.7132, 107.9656",
+    alamat: "-6.7139185908922006, 107.9685603097533",
     foto: "aset/rita.jpg"
   },
   "196808172023211001": {
@@ -115,7 +115,7 @@ const DATA_GTK = {
     menjabat: "Guru PAI",
     status_kepegawaian: "PPPK",
     no_hp: "085221248866",
-    alamat: "-6.745455, 107.887542",
+    alamat: "-6.733613409179964, 107.89779975186889",
     foto: "aset/suherman.jpg"
   },
   "196707202008012005": {
@@ -132,7 +132,7 @@ const DATA_GTK = {
     menjabat: "Guru PJOK",
     status_kepegawaian: "PNS",
     no_hp: "081220031737",
-    alamat: "-6.7132, 107.9656",
+    alamat: "-6.7140975361876345, 107.96773082282463",
     foto: "aset/titi.jpg"
   },
   "199502012025211097": {
@@ -149,7 +149,7 @@ const DATA_GTK = {
     menjabat: "Guru Kelas III",
     status_kepegawaian: "PPPK (Paruh Waktu)",
     no_hp: "081214734224",
-    alamat: "-6.7439, 107.9042",
+    alamat: "-6.746880906236976, 107.90327450512083",
     foto: "aset/tino.jpg"
   },
   "SRI OKTAVIANI": {
@@ -183,7 +183,8 @@ const DATA_GTK = {
     menjabat: "Penjaga Sekolah",
     status_kepegawaian: "PPPK (Paruh Waktu)",
     no_hp: "085794192124",
-    alamat: "-6.702952, 107.962054",
+    alamat: "-6.692820731751904, 107.92376809178288",
     foto: "aset/jojo.jpg"
   }
 };
+
