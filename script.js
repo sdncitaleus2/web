@@ -291,3 +291,47 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log('✅ Script initialized - ma1n.html loaded');
 });
+
+
+  <!-- Mobile Menu Handler -->
+
+const burgerMenu = document.getElementById('burgerMenu');
+const navMenu = document.getElementById('navMenu');
+const header = document.getElementById('mainHeader');
+
+if (burgerMenu && navMenu) {
+  burgerMenu.addEventListener('click', (e) => {
+    e.stopPropagation(); // cegah auto close
+    navMenu.classList.toggle('active');
+  });
+
+  navMenu.addEventListener('click', (e) => {
+    e.stopPropagation(); // klik menu tidak nutup
+  });
+
+  document.addEventListener('click', () => {
+    if (!header.contains(e.target)) {
+    navMenu.classList.remove('active');
+  });
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navMenu.classList.remove('active');
+  }
+});
+
+burgerMenu.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navMenu.classList.toggle('active');
+  document.body.classList.toggle('nav-open');
+});
+
+document.addEventListener('click', (e) => {
+  if (!header.contains(e.target)) {
+    navMenu.classList.remove('active');
+    document.body.classList.remove('nav-open');
+  }
+});
+
+
