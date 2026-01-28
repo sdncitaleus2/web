@@ -165,7 +165,7 @@ const DATA_GTK = {
     pendidikan: "S1 PJKR",
     menjabat: "Guru PJOK",
     status_kepegawaian: "HONORER",
-    no_hp: "+62 812-2301-6551",
+    no_hp: "081223016551",
     alamat: " 6.3933900, 107.5416547",
     foto: "aset/okta.jpeg"
   },
@@ -187,5 +187,6 @@ const DATA_GTK = {
     foto: "aset/jojo.jpg"
   }
 };
+
 
 
