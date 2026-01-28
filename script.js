@@ -334,4 +334,11 @@ document.addEventListener('click', (e) => {
   }
 });
 
+burgerMenu.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    navMenu.classList.toggle('active');
+  }
+});
+
+
 
