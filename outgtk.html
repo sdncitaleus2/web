@@ -333,23 +333,7 @@
     document.getElementById("menjabat").textContent = d.menjabat || "-";
     document.getElementById("status").textContent = d.status_kepegawaian || "-";
     document.getElementById("hp").textContent = d.no_hp || "-";
-    const alamatEl = document.getElementById("alamat");
-
-if (alamatEl) {
-  alamatEl.style.cursor = "pointer";
-  alamatEl.style.textDecoration = "underline";
-
-  alamatEl.onclick = () => {
-    const alamat = alamatEl.textContent.trim();
-    if (!alamat || alamat === "-") return;
-
-    window.open(
-      "https://www.google.com/search?q=" + encodeURIComponent(alamat),
-      "_blank"
-    );
-  };
-}
-
+    dokument.getEleemntById("alamat").textcontent = d.alamat || "-";
 
     const TOOLS = [
       {
@@ -442,6 +426,7 @@ if (alamatEl) {
   </script>
 </body>
 </html>
+
 
 
 
