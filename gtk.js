@@ -69,7 +69,7 @@ const DATA_GTK = {
   },
   "198005242022212002": {
     nama: "ILIS SUARSIH, S.Pd",
-    jabatan: "GURU KELAS II",
+    jabatan: "GURU KELAS I",
     nip: "19800524 202221 2 002",
     nuptk: "6856758660130102",
     tempat_tanggal_lahir: "Sumedang, 24-05-1980",
@@ -187,6 +187,7 @@ const DATA_GTK = {
     foto: "aset/jojo.jpg"
   }
 };
+
 
 
 
