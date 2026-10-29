@@ -1,33 +1,156 @@
-/* Halaman dokumen: Perencanaan dan Keorganisasian */
-.docs-page{min-height:100vh;background:#f4f6f9;color:#243447;padding:0 0 48px}
-.docs-header{background:#0b3c5d;color:#fff;padding:16px clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 3px 14px rgba(0,0,0,.12)}
-.docs-brand{display:flex;align-items:center;gap:12px;min-width:0;color:inherit;text-decoration:none}
-.docs-brand img{width:44px;height:44px;object-fit:contain}
-.docs-brand strong{display:block;font-size:1rem;letter-spacing:.03em}
-.docs-brand small{display:block;opacity:.82;font-size:.8rem;margin-top:2px}
-.docs-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.docs-nav a{color:#fff;text-decoration:none;font-weight:650;font-size:.9rem;padding:9px 12px;border-radius:9px}
-.docs-nav a:hover,.docs-nav a[aria-current=page]{background:rgba(255,255,255,.15)}
-.docs-main{width:min(1120px,calc(100% - 32px));margin:0 auto}
-.docs-hero{padding:42px 0 24px}
-.docs-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b46c00}
-.docs-hero h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15;color:#0b3c5d;margin:8px 0 12px}
-.docs-hero p{max-width:720px;line-height:1.7;color:#5b6673}
-.docs-tools{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0 20px}
-.docs-search{flex:1;min-width:min(100%,240px);max-width:480px;border:1px solid #d5dde5;background:#fff;padding:12px 14px;border-radius:12px;font:inherit;outline-offset:3px}
-.docs-count{font-size:.9rem;color:#687583}
-.docs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:16px}
-.doc-card{display:flex;flex-direction:column;min-height:190px;background:#fff;border:1px solid #e2e8ef;border-radius:16px;padding:18px;text-decoration:none;color:inherit;box-shadow:0 5px 18px rgba(15,45,70,.055);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;overflow-wrap:anywhere}
-.doc-card:hover,.doc-card:focus-visible{transform:translateY(-3px);border-color:#9db8cc;box-shadow:0 12px 26px rgba(15,45,70,.11);outline:none}
-.doc-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
-.doc-file-icon{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:#eaf2f8;color:#0b3c5d;font-size:1.25rem;font-weight:800}
-.doc-type{font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#526475;background:#f0f3f6;padding:5px 8px;border-radius:99px}
-.doc-card h2{font-size:1.02rem;line-height:1.45;color:#123e5b;margin:0 0 8px}
-.doc-card-meta{font-size:.78rem;color:#778391;margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.doc-open{font-weight:750;color:#0b6594;white-space:nowrap}
-.docs-state{background:#fff;border:1px dashed #cbd5df;border-radius:16px;padding:28px 20px;text-align:center;color:#5b6673;line-height:1.65}
-.docs-state strong{display:block;color:#243447;margin-bottom:6px}
-.docs-state a{color:#0b6594;font-weight:700}
-.docs-footer{text-align:center;color:#788592;font-size:.82rem;padding:32px 16px 0}
-@media(max-width:680px){.docs-header{align-items:flex-start;flex-direction:column}.docs-nav{justify-content:flex-start}.docs-nav a{padding:8px 10px}.docs-hero{padding-top:30px}.doc-card{min-height:170px}}
-@media(prefers-reduced-motion:reduce){.doc-card{transition:none}.doc-card:hover{transform:none}}
+/* Identitas visual halaman dokumen SDN Citaleus II */
+:root{
+  --school-navy:#103b52;
+  --school-navy-deep:#092b3d;
+  --school-green:#27745d;
+  --school-green-soft:#e5f2eb;
+  --school-gold:#d5a449;
+  --ink:#233847;
+  --muted:#687985;
+  --paper:#ffffff;
+  --canvas:#f2f6f5;
+  --line:#dce6e3;
+  --shadow:0 10px 28px rgba(16,59,82,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.docs-page{
+  margin:0;min-height:100vh;color:var(--ink);
+  background:
+    radial-gradient(ellipse at 8% 14%,rgba(39,116,93,.07),transparent 28rem),
+    var(--canvas);
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.docs-header{
+  position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding:15px clamp(18px,5vw,68px);color:#fff;
+  background:linear-gradient(110deg,var(--school-navy-deep),var(--school-navy));
+  border-bottom:3px solid var(--school-gold);
+  box-shadow:0 6px 24px rgba(9,43,61,.15)
+}
+.docs-brand{display:flex;align-items:center;gap:13px;min-width:0;color:inherit;text-decoration:none}
+.docs-brand img{
+  width:48px;height:48px;flex:0 0 48px;object-fit:contain;
+  padding:4px;border-radius:14px;background:rgba(255,255,255,.96)
+}
+.docs-brand strong{display:block;font-size:.96rem;letter-spacing:.07em}
+.docs-brand small{display:block;margin-top:4px;color:rgba(255,255,255,.72);font-size:.78rem}
+.docs-nav{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap}
+.docs-nav a{
+  padding:10px 13px;border:1px solid transparent;border-radius:10px;
+  color:rgba(255,255,255,.86);font-size:.88rem;font-weight:650;text-decoration:none;
+  transition:background .18s ease,color .18s ease,border-color .18s ease
+}
+.docs-nav a:hover,.docs-nav a:focus-visible{
+  color:#fff;background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14);outline:none
+}
+.docs-nav a[aria-current=page]{
+  color:#fff;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.18)
+}
+.docs-main{width:min(1120px,calc(100% - 36px));margin:0 auto}
+.docs-hero{
+  position:relative;isolation:isolate;overflow:hidden;margin:34px 0 24px;padding:clamp(28px,5vw,52px);
+  border:1px solid rgba(39,116,93,.12);border-radius:26px;
+  background:linear-gradient(115deg,#fff 0%,#f7fbf8 64%,#eaf4ee 100%);
+  box-shadow:var(--shadow)
+}
+.docs-hero:before,.docs-hero:after{
+  content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none
+}
+.docs-hero:before{
+  width:270px;height:270px;right:-75px;top:-130px;
+  border:34px solid rgba(39,116,93,.07)
+}
+.docs-hero:after{
+  width:110px;height:110px;right:85px;bottom:-76px;
+  background:rgba(213,164,73,.12)
+}
+.docs-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border-radius:99px;
+  color:var(--school-green);background:var(--school-green-soft);
+  font-size:.72rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase
+}
+.docs-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--school-gold)}
+.docs-hero h1{
+  max-width:740px;margin:17px 0 13px;color:var(--school-navy-deep);
+  font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.045em
+}
+.docs-hero p{max-width:690px;margin:0;color:#5d6f78;font-size:1.02rem;line-height:1.8}
+.docs-tools{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  margin:0 0 18px
+}
+.docs-search{
+  width:min(100%,510px);min-height:50px;padding:13px 16px;border:1px solid #d5e1dc;
+  border-radius:13px;background:#fff;color:var(--ink);font:inherit;
+  box-shadow:0 3px 12px rgba(16,59,82,.035);outline:none;
+  transition:border-color .18s ease,box-shadow .18s ease
+}
+.docs-search::placeholder{color:#8a999f}
+.docs-search:focus{border-color:var(--school-green);box-shadow:0 0 0 4px rgba(39,116,93,.12)}
+.docs-count{color:var(--muted);font-size:.86rem;font-weight:650}
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,255px),1fr));gap:17px}
+.doc-card{
+  position:relative;display:flex;flex-direction:column;min-height:220px;padding:21px;
+  overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--paper);
+  color:inherit;text-decoration:none;box-shadow:0 4px 15px rgba(16,59,82,.035);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease
+}
+.doc-card:before{
+  content:"";position:absolute;inset:0 0 auto;height:4px;
+  background:linear-gradient(90deg,var(--school-green),var(--school-gold));
+  opacity:0;transition:opacity .2s ease
+}
+.doc-card:hover,.doc-card:focus-visible{
+  transform:translateY(-4px);border-color:#b6d1c4;
+  box-shadow:0 15px 34px rgba(16,59,82,.1);outline:none
+}
+.doc-card:hover:before,.doc-card:focus-visible:before{opacity:1}
+.doc-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:21px}
+.doc-file-icon{
+  display:grid;place-items:center;width:53px;height:53px;flex:0 0 53px;
+  border-radius:15px;color:var(--school-green);background:var(--school-green-soft);
+  font-size:1rem;font-weight:900;letter-spacing:-.03em
+}
+.doc-type{
+  max-width:58%;padding:6px 9px;border:1px solid #e6ece9;border-radius:99px;
+  background:#f7f9f8;color:#63756e;font-size:.68rem;font-weight:850;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.doc-card h2{
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0;color:var(--school-navy);font-size:1.03rem;font-weight:760;line-height:1.48;
+  overflow-wrap:anywhere
+}
+.doc-card-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:auto;padding-top:20px;color:#7c8b91;font-size:.77rem
+}
+.doc-open{
+  display:inline-flex;align-items:center;gap:5px;color:var(--school-green);
+  font-size:.8rem;font-weight:800;white-space:nowrap
+}
+.docs-state{
+  padding:34px 22px;border:1px dashed #c8d8d0;border-radius:18px;background:rgba(255,255,255,.78);
+  color:#63756e;text-align:center;line-height:1.7
+}
+.docs-state strong{display:block;margin-bottom:7px;color:var(--school-navy);font-size:1.02rem}
+.docs-state p{margin:8px auto;max-width:600px}
+.docs-state a{color:var(--school-green);font-weight:800}
+.docs-footer{padding:32px 16px 26px;color:#82908f;font-size:.8rem;text-align:center}
+@media(max-width:760px){
+  .docs-header{align-items:flex-start;flex-direction:column;gap:14px;padding:14px 18px}
+  .docs-nav{justify-content:flex-start;width:100%;gap:3px}
+  .docs-nav a{padding:9px 10px;font-size:.83rem}
+  .docs-hero{margin-top:22px;padding:27px 23px;border-radius:21px}
+  .docs-hero h1{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .docs-hero p{font-size:.95rem}
+  .docs-tools{align-items:stretch}
+  .docs-search{width:100%;max-width:none}
+  .docs-count{padding-left:2px}
+  .doc-card{min-height:195px;padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
